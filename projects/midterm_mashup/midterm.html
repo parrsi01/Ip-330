@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Midterm Project</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="midterm.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKHAeEok60rvTMF-xLx50hNvDdl3w3VDg&callback=initMap"
+  async defer ></script>
+  <script src="midterm.js"></script>
+</head>
+
+<body>
+<div class="jumbotron text-center">
+  <h1>Midterm Project</h1>
+  <p>Favourite EPL Team? (Enter team name in the following format: e.g 'Arsenal FC')</p>
+  <input onclick="initMap()" type=input class="form-control" name="input" id=input />
+  <input id="submit" type="button" class="btn btn-secondary" value="Submit Name!">
+ 
+  <p id="team_name"></p>
+  <p id="founded"></p>
+ 
+</div>
+  
+
+
+<body>
+  <div id="floating-panel">
+
+  </div>
+  <div id="map"></div>
+  
+  
+</body>
