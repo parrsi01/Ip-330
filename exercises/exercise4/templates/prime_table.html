@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class='alert alert-primary'>Listing Prime Numbers</div>
+
+<form action="/" method="GET">
+    {{get_n_primes(Numbers)}}
+</form>
+
+{% endblock %}
