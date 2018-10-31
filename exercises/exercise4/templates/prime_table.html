@@ -5,7 +5,11 @@
 <div class='alert alert-primary'>Listing Prime Numbers</div>
 
 <form action="/" method="GET">
-    {{get_n_primes(Numbers)}}
+    <ul>
+       {%for i in range(number+1) %}
+            <p>{{get_n_primes}}</p>
+        {% endfor %}
+    </ul>
 </form>
 
 {% endblock %}

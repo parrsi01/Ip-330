@@ -4,9 +4,11 @@
 
 <div class='alert alert-primary'>Enter a number!</div>
 
-<form action="/" method="GET">
-    <input type="number" class="form-control">
-
+<form action="/" method="POST">
+    <div class="container">
+    <input type="text" name="number">
+    <button class="btn btn-primary btn-sm"  id=gobutt>Submit!</button>
+    </div>
 </form>
 
 {% endblock %}

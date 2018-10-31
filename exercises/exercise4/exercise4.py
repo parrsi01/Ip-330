@@ -31,31 +31,35 @@ def get_n_primes(n: int) -> list:
 
 @app.route('/')
 def index():
-    print(request.args)
     if request.method == 'GET':
-        return render_template('ask.html')
+        num = request.args.get('number')
+        if num is None:
+            return render_template('ask.html')
+        else:
+            return render_template('prime_table.html')
+    else:
+        response = make_response(redirect(url_for('index')))
+        if request.form.get('number'):
+            response.set_cookie('number', '', expires=0)
+        else:
+            num = request.form.get('number')
+            response.set_cookie('number', num)
+        return response
+
     raise NotImplementedError
 
 @app.route('/<int:n>',methods=['GET','POST'])
 def get_primes(n):
     if request.method == 'GET':
-        response.set_cookie('int', n)
-        return render_template('prime_table.html')
-    else:
-        return render_template('ask.html')
-
+        number = n
+        return render_template('prime_table.html', get_n_primes=get_n_primes(n), number=n)
     raise NotImplementedError
 
-@app.route('/ask/num', methods=['GET','POST'])
+@app.route('/ask', methods=['GET','POST'])
 def ask_a_number():
     if request.method == 'GET':
-        num = request.form['action'] == '%d'
-        return 'num is: %d', num
-        #return render_template('ask.html')
-    else:
-        return is_prime(n)
+        return render_template('ask.html')    
     raise NotImplementedError
-
 
 if __name__ == '__main__':
     app.run()

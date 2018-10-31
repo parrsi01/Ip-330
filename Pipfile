@@ -4,9 +4,16 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+<<<<<<< HEAD
 
 [dev-packages]
 pylint = "<2.0.0"
+=======
+flask = "*"
+pylint = "*"
+
+[dev-packages]
+>>>>>>> aef484f3fbb978f030ac8159c6961f08661dfc87
 
 [requires]
 python_version = "3.6"
