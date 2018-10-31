@@ -6,8 +6,9 @@
 
 <form action="/" method="GET">
     <ul>
-       {%for i in range(number+1) %}
-            <p>{{get_n_primes}}</p>
+       {%for i in get_n_primes %}
+    
+            <p>{{i}} is a prime number</p>
         {% endfor %}
     </ul>
 </form>

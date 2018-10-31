@@ -13,37 +13,32 @@ def is_prime(n: int) -> bool:
         if n%i == 0:
             x = False
             break
-    if x:
-        print("number is prime")
-        return n
-    else:
-        print("number is not prime")
-        return n
-    raise NotImplementedError
+    return x
+    #raise NotImplementedError
 
 def get_n_primes(n: int) -> list:
     a = is_prime(n)
-    for i in range(1, a+1):
-        is_prime(i)
-    return n
-    raise NotImplementedError
+    b=[]
+    count = 1
+    while len(b) != n:
+        if is_prime(count):
+            b.append(count)
+        count+=1
+    return b
+    #raise NotImplementedError
 
 
-@app.route('/')
+@app.route('/', methods=['GET','POST'])
 def index():
+    num = request.args.get('number')
     if request.method == 'GET':
-        num = request.args.get('number')
         if num is None:
             return render_template('ask.html')
         else:
             return render_template('prime_table.html')
     else:
-        response = make_response(redirect(url_for('index')))
-        if request.form.get('number'):
-            response.set_cookie('number', '', expires=0)
-        else:
-            num = request.form.get('number')
-            response.set_cookie('number', num)
+        response = render_template('prime_table.html', n=num)
+        response.set_cookie(num)
         return response
 
     raise NotImplementedError
