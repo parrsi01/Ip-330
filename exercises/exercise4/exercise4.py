@@ -37,9 +37,9 @@ def index():
         else:
             return render_template('prime_table.html')
     else:
-        response = render_template('prime_table.html', n=num)
-        response.set_cookie(num)
-        return response
+        response = make_response(render_template('prime_table.html', n=num))
+        response.set_cookie('number', str(num))
+    return response
 
     raise NotImplementedError
 
