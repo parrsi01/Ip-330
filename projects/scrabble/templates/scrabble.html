@@ -1,0 +1,53 @@
+{% extends "base.html"%}
+{% block content %}
+
+<head>
+    <div class='alert alert-primary'>Enter a letter</div>
+
+<form action="/permutation" method="POST">
+    <div class="container">
+    <input type="text" name='letter1' placeholder="Letter">
+    <input type="text" name='letter2' placeholder="Letter">
+    <input type="text" name='letter3' placeholder="Letter">
+    <input type="text" name='letter4' placeholder="Letter">
+    <input type="text" name='letter5' placeholder="Letter">
+    <input type="text" name='letter6' placeholder="Letter">
+    <input type="text" name='letter7' placeholder="Letter">
+    <input type="submit" value="Help Me!" class="btn btn-primary btn-lg btn-block">
+    </div>
+</form>
+
+</head>
+
+<div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Dropdown button
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <a class="dropdown-item" href="/permutation/american">American</a>
+      <a class="dropdown-item" href="/permutation/british">British</a>
+    </div>
+  </div>
+
+<body>
+
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Word</th>
+        <th scope="col">Length</th>
+        <th scope="col">Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">{{ result1 }}</th>
+        <td>word length</td>
+        <td>{{ sum }}</td>
+      </tr>
+      <tr>
+    </tbody>
+  </table>
+</body>
+
+  {% endblock %}
