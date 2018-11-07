@@ -23,14 +23,32 @@ def scrabble():
 def permutation():
     #List to store letters from the user
     permutation = []
+    alphabet = ["a","b","c","d","e","f","g","h","i","k",
+           "l","m","n","o","p","q","r","s","t","u",
+           "v","w","x","y","z"]
     #wildcard
+    wildcard = '*'
     for letter in ["letter1", "letter2", "letter3", "letter4", "letter5", "letter6", "letter7"]:
         if request.form.get(letter) != '':
             permutation.append(request.form.get(letter))
     wordlist = []
+    '''
+    if wildcard in permutation:
+        wildcard_index = permutation.index('*')
+        del(permutation[wildcard_index])
+
+    for item in alphabet:
+        permutation.append(item)
+        for item in range(len(permutation)):
+            wordlist = list(p(permutation,item+1))
+            for item in permutation:
+                wordlist.append(item)
+        del(wordlist[-1])
+    '''
+
     for i in range(7):
         wordlist+= list(p(permutation,i+1))
-    print(wordlist)
+    #print(wordlist)
     newlist = []
     for word in wordlist:
         newlist.append(''.join(word))
@@ -41,17 +59,19 @@ def permutation():
     #Check if string in wordset is a word in american/british dictionary. Then return it. For loop + if-statement
     total = 0
     mydictionary = request.form.get('dictionary')
-    print(mydictionary)
+    #print(mydictionary)
     if mydictionary == 'british':
         #if requests.args.get == british :
         for word in wordset:
-            if word in british:
-                return_list.append(word)
+            if len(word) > 1:
+                if word in british:
+                    return_list.append(word)
     else:
         if mydictionary == 'american':
-            for word in wordset:
-                if word in american:
-                    return_list.append(word)
+            if len(word) > 1:
+                for word in wordset:
+                    if word in american:
+                        return_list.append(word)
 
     score = {"a": 1, "c": 3, "b": 3, "e": 1, "d": 2, "g": 2, 
          "f": 4, "i": 1, "h": 4, "k": 5, "j": 8, "m": 3, 
