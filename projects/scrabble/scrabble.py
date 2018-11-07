@@ -23,6 +23,7 @@ def scrabble():
 def permutation():
     #List to store letters from the user
     permutation = []
+    #wildcard
     for letter in ["letter1", "letter2", "letter3", "letter4", "letter5", "letter6", "letter7"]:
         if request.form.get(letter) != '':
             permutation.append(request.form.get(letter))
@@ -60,6 +61,7 @@ def permutation():
 
     return_total = []
     for word in return_list:
+        total = 0
         for i in word:
             total = total+score[i]
         return_total.append(str(total))
