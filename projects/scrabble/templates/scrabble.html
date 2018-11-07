@@ -15,19 +15,20 @@
     <input type="text" name='letter7' placeholder="Letter">
     <input type="submit" value="Help Me!" class="btn btn-primary btn-lg btn-block">
     </div>
+    <div class="input-group mb-3">
+        <select class="custom-select" name='dictionary' id="inputGroupSelect02">
+          <option selected>Choose...</option>
+          <option value="american">american</option>
+          <option value="british">british</option>
+        </select>
+        
+      </div>
+    
+
 </form>
 
 </head>
 
-<div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Dropdown button
-    </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <a class="dropdown-item" href="/permutation/american">American</a>
-      <a class="dropdown-item" href="/permutation/british">British</a>
-    </div>
-  </div>
 
 <body>
 
@@ -41,9 +42,26 @@
     </thead>
     <tbody>
       <tr>
-        <th scope="row">{{ result1 }}</th>
-        <td>word length</td>
-        <td>{{ sum }}</td>
+        <th scope="row"><ul>
+              {%for i in result %}
+           
+                   <p>{{i}}</p>
+               {% endfor %}
+           </ul></th>
+
+        <td><ul>
+            {%for i in result %}
+         
+                 <p>{{i|length}}</p>
+             {% endfor %}
+         </ul>
+
+        </td>
+        <td><ul>{%for i in count %}
+         
+            <p>{{i}}</p>
+        {% endfor %}
+            <ul></td>
       </tr>
       <tr>
     </tbody>
