@@ -27,7 +27,7 @@ def index():
         return render_template("index.html")
     if request.form.get("country"):
         country = request.form.get("country")
-        query = f"select * from country where country='{country}';"
+        query = f"select * from country where code='{country}';"
     if request.form.get("region"):
         region = request.form.get("region")
         query = f"select * from country where region='{region}';"
