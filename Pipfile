@@ -10,10 +10,17 @@ name = "pypi"
 pylint = "<2.0.0"
 =======
 flask = "*"
-pylint = "*"
+requests = "*"
+records = "*"
+"psycopg2" = "*"
 
 [dev-packages]
+<<<<<<< HEAD
 >>>>>>> aef484f3fbb978f030ac8159c6961f08661dfc87
+=======
+black = "*"
+pylint = "*"
+>>>>>>> e31d511504570d6fbe8e748f2bbe199b104157ad
 
 [requires]
 python_version = "3.6"
