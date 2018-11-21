@@ -1,0 +1,80 @@
+<html>
+    <head>
+        <title>Shopping List</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="./static/css/shopping_list2.css" />
+    </head>
+
+    <body>
+        <div class="container">
+                <h1>Shopping Made Easy</h1>
+                <h2>New Item</h2>
+                        
+                <div class="panel-body">
+                <div class="row form-inline">
+
+                <div class="form-group">
+                    <label for="itemname">Item Name</label>
+                    <input type=text class="form-control" name="itemname" id=itemname />
+                
+                <div class="form-group"></div>
+                <label for="qty">Quantity</label>
+                <select name="quantity" id="qty" class="form-control">
+                  
+                </select>
+                <div class="form-group">
+                <label for="priority">Priority</label>
+                <select name="priority" id="priority" class="form-control">
+                    
+                </select>
+            </div>
+                </div>
+
+                <div class="row form-inline" style="margin-top: 20px; margin-bottom: 20px;">
+                    <div class="form-group">
+                    <label for="store">Store Name</label>
+                    <select name="store" id="store" class="form-control">
+                        
+                    </select>
+                    </div>
+                    <div class="form-group">
+                    <label for="category">Store Section</label>
+                    <select name="category" id="category" class="form-control">
+                            
+                    </select>
+                    </div>
+                    <div class="form-group">
+                    <label for="price">Price</label>
+                    <input type="text" name="price" id="price" class="form-control">
+                    </div>
+                </div>
+                <button onclick="clickedon()" class="btn btn-primary btn-lg btn-block" id=gobutt>Add</button>
+                </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                
+            <table class="table">
+            
+                <thead class="thead-dark">
+                    <tr>
+                        <th ></th>
+                        <th></th><th>Item</th><th>Quantity</th><th>Store</th><th>Section</th><th>Price</th>
+                    </tr>
+                </thead>
+                <tbody id="shoppinglist"></tbody>
+            </table>
+        </div>
+        <button onclick="saveList()" class="btn btn-success">Save List</button>
+        <div> <button onclick="clearList()" class="btn btn-danger" style="float: right;">Remove All</button></div>
+        <button onclick="clearItem()" class="btn btn-warning" style="float: right;">Removed Purchased</button>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="./static/js/model2.js" type=text/javascript></script>
+        <script src="./static/js/view2.js" type=text/javascript></script>
+        <script src="./static/js/controller2.js" type=text/javascript></script>
+        
+       
+    </body>
+</html>
