@@ -39,7 +39,6 @@ function addList(){
 
 
 function saveList(){
-
     let savedcols = localStorage.getItem('item');
     savedcols = savedcols ? JSON.parse(savedcols) : [];
     localStorage.setItem('item', JSON.stringify(shoppingModel));
@@ -48,23 +47,33 @@ function saveList(){
     localStorage.setItem("shoppingModel",JSON.stringify(shoppingModel));
     console.log("save ShoppingList");
     console.log(item);
+    let config = {}
+	config.method = 'POST'
+	config.body = JSON.stringify({'list': JSON.stringify(list.getShoppingList())})
+	config.headers = {'Content-Type': 'application/json', 'Accept': 'application/json'}
+	fetch("/save", config)
 }
 
 function clearList(){
-    ShoppingList.deleteAllRows(document.getElementById('shoppinglist'));
+    ShoppingList.deleteRow(document.getElementById('shoppinglist'));
     let savedcols = localStorage.getItem('item');
     savedcols = savedcols ? localStorage.removeItem(shoppingModel) : [];
 }
 
 
 function clearItem(){
-    myView.removeItem(document.getElementById('shoppingList'));
+    ShoppingList.remove(document.getElementById('shoppingList'));
     let savedcols = localStorage.getItem('item');
     savedcols = savedcols ? localStorage.removeItem(shoppingModel) : [];
 
 }
 
 function populateSelect(selectId, sList) {
+    let config = {}
+	config.method = 'GET'
+	config.body = JSON.stringify({'list': JSON.stringify(list.getShoppingList())})
+	config.headers = {'Content-Type': 'application/json', 'Accept': 'application/json'}
+	fetch("/get", config)
     let sel = document.getElementById(selectId, sList);
     for (let s of sList) {
         let opt = document.createElement("option");

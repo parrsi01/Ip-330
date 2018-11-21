@@ -78,7 +78,7 @@ class ShoppingList extends Subject {
     emptyList(){
         this.items = [];
     }
-    removeItem(it) {
+    remove(it) {
         let index = this.newItems.indexOf(it);
         if(index > -1){
             let it = this.newItems.splice(index, 1);
