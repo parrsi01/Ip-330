@@ -76,6 +76,7 @@ function populateSelect(selectId, sList) {
 	fetch("/get", config)
     let sel = document.getElementById(selectId, sList);
     for (let s of sList) {
+        
         let opt = document.createElement("option");
         opt.value = s;
         opt.innerHTML = s;
