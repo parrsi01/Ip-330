@@ -22,6 +22,7 @@ def flask_save():
     f = open("shopping_list.txt", "w")
     shopping_list = request.json.get("shopping_list")
     f.write(shopping_list)
+    f.close()
     return "Shopping List Saved"
 
 

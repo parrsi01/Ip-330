@@ -5,6 +5,8 @@ from flask import render_template
 from flask import Flask, session, escape
 
 app = Flask(__name__)
+
+# Set the secret key to some random bytes.
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 
 @app.route('/', methods=['GET','POST'])
