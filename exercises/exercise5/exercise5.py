@@ -11,7 +11,7 @@ app = Flask(__name__)
 def get_data_from_db(query: str) -> list:
     try:
         conn = psycopg2.connect(
-            user="parrsi01", host="knuth.luther.edu", port=5432, dbname="world"
+            user="parrsi01", host="", port=5432, dbname=""
         )
     except:
         raise ConnectionError("Could not connect to the database")
