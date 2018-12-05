@@ -1,13 +1,23 @@
 import os
 import requests
 from flask import Flask, redirect, url_for, make_response, session, escape, request, render_template, send_from_directory
-
+import http.client
 
 app = Flask(__name__)
 
 # Set the secret key to some random bytes.
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 
+
+
+conn = http.client.HTTPSConnection("api.sportradar.us")
+
+conn.request("GET", "/soccer-xt3/eu/en/schedules/2016-08-18/results.xml?api_key={s9bxp3w4637vu2zzkrufd57f}")
+
+res = conn.getresponse()
+data = res.read()
+
+print(data.decode("utf-8"))
 
 '''
 def get_data_from_db(query: str) -> list:
@@ -55,9 +65,8 @@ def league():
 def team():
     return render_template('team.html')
 
-
-
-
-
+@app.route('/json', methods=['GET','POST'])
+def app_json():
+    return render_template('json.html')
 if __name__ == '__main__':
     app.run() 
