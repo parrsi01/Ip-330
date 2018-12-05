@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+<link href="../static/css/final.css" rel="stylesheet">
+<form action="/login" method="POST">
+    <!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Final Project</title>
+
+  </head>
+
+  <body id="page-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="/">Soccer Databases</a>
+        <a class="navbar-brand js-scroll-trigger" href="/league">League Info</a>
+        <a class="navbar-brand js-scroll-trigger" href="/team">Team Info</a>
+        <a class="navbar-brand js-scroll-trigger" href="/player">Player Info</a>
+        <a class="navbar-brand js-scroll-trigger" href="/logout">Logout</a>
+        
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </nav>
+
+  </body>
+  <!-- Footer -->
+  <footer class="py-3 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Final Project &copy; Simon Parris 2018</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+</html>
+
+
+
+</form>
+
+{% endblock %}
