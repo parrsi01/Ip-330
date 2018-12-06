@@ -1,7 +1,9 @@
 import os
-import requests
 from flask import Flask, redirect, url_for, make_response, session, escape, request, render_template, send_from_directory
+from flask_sqlalchemy import SQLAlchemy
 import http.client
+import json
+
 
 app = Flask(__name__)
 
@@ -9,31 +11,53 @@ app = Flask(__name__)
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 
 
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
+db = SQLAlchemy(app)
 
-conn = http.client.HTTPSConnection("api.sportradar.us")
 
-conn.request("GET", "/soccer-xt3/eu/en/schedules/2016-08-18/results.xml?api_key={s9bxp3w4637vu2zzkrufd57f}")
 
-res = conn.getresponse()
-data = res.read()
 
-print(data.decode("utf-8"))
+class SoccerDatabase(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    firstname = db.Column(db.String(80), unique=True, nullable=False)
+    lastname = db.Column(db.String(80), unique=True, nullable=False)
+    country = db.Column(db.Integer, primary_key=True)
 
-'''
-def get_data_from_db(query: str) -> list:
-    try:
-        conn = psycopg2.connect(
-            user="parrsi01", host="knuth.luther.edu", port=5432, dbname="cars")
-    except:
-        raise ConnectionError("Could not connect to the database")
-    cur = conn.cursor()
-    cur.execute(query)
-    rows = cur.fetchall()
-    return rows
-'''
+    def __init__(self):
+        self.id = id
+        self.firstname = firstname
+        self.lastname = lastname
+        self.country = country
+        self.team = team
+        self.league = league
+        self.complete = False
+
+    def __repr__(self):
+        return str(self.firstname)
+    
+    def returnDatabase(self):
+        return str(self.firstname), str(self.lastname), str(self.overall), str(self.team),str(self.league)
+
+
+
+#Populates data for sql table
+def populate():
+    conn = http.client.HTTPSConnection("api.sportradar.us")
+    conn.request("GET", "https://api.sportradar.us/soccer-{access_level}{version}/{league_group}/{language_code}/schedules/live/results.{format}?api_key= g5my63s4henathevny9npqem")
+
+    res = conn.getresponse()
+    data = res.read()
+    print(data.decode("utf-8"))
+    return data
+@app.route('/temp', methods=['GET','POST'])
+def temp():
+    x = populate()
+    return str(x)
 
 @app.route('/register', methods=['GET','POST'])
 def register():
+    pass
 
 @app.route('/', methods=['GET','POST'])
 def index():
@@ -55,18 +79,35 @@ def logout():
 
 @app.route('/player', methods=['GET','POST'])
 def player():
-    return render_template('player.html')
+    if request.method == 'POST':
+        session['username'] = request.form['username']
+        return redirect(url_for('player'))
 
 @app.route('/league', methods=['GET','POST'])
 def league():
-    return render_template('league.html')
+    if request.method == 'POST':
+        session['username'] = request.form['username']
+        return redirect(url_for('league'))
 
 @app.route('/team', methods=['GET','POST'])
 def team():
-    return render_template('team.html')
+    if request.method == 'POST':
+        session['username'] = request.form['username']
+        return redirect(url_for('team'))
+
+@app.route('/database', methods=['GET','POST'])
+def database():
+    if request.method == 'POST':
+        session['username'] = request.form['username']
+        return redirect(url_for('database'))
 
 @app.route('/json', methods=['GET','POST'])
 def app_json():
-    return render_template('json.html')
+    if request.method == 'POST':
+        session['username'] = request.form['username']
+        return redirect(url_for(''))
+
+
+
 if __name__ == '__main__':
     app.run() 

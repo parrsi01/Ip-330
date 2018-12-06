@@ -26,6 +26,7 @@
         <a class="navbar-brand js-scroll-trigger" href="/league">League Info</a>
         <a class="navbar-brand js-scroll-trigger" href="/team">Team Info</a>
         <a class="navbar-brand js-scroll-trigger" href="/player">Player Info</a>
+        <a class="navbar-brand js-scroll-trigger" href="/database">Create your own player</a>
         <a class="navbar-brand js-scroll-trigger" href="/logout">Logout</a>
         
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,7 +34,26 @@
         </button>
       </div>
     </nav>
-
+    <div id="container">
+      <div class="alert alert-info">
+          Pick a team
+      </div>
+      <form action="/team" method="POST">
+          <div class="row">
+              <div class="col">
+                  <select class="form-control" name="continent">
+                      {% for o in options %}
+                      <option value="{{o[0]}}">{{o[0]}}</option>
+                      {% endfor %}
+                  </select>
+              </div>
+              <div class="col">
+                  <input type="submit" class="btn" value="Get Info!">
+              </div>
+          </div>
+      </form>
+  </div>
+  
   </body>
   <!-- Footer -->
   <footer class="py-3 bg-dark">

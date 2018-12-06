@@ -13,7 +13,6 @@ ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333;
   position: -webkit-sticky; /* Safari */
   position: sticky;
   top: 0;
@@ -25,4 +24,19 @@ ul {
 
 .nav:active{ 
   color:blue;
+}
+
+
+header {
+  padding: 154px 0 100px;
+}
+
+@media (min-width: 992px) {
+  header {
+    padding: 156px 0 100px;
+  }
+}
+
+section {
+  padding: 150px 0;
 }

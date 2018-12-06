@@ -2,7 +2,7 @@
 
 {% block content %}
 <link href="../static/css/final.css" rel="stylesheet">
-<form action="/player" method="POST">
+<form action="/database" method="POST">
     <!DOCTYPE html>
 <html lang="en">
 
@@ -29,31 +29,13 @@
         <a class="navbar-brand js-scroll-trigger" href="/database">Create your own player</a>
         <a class="navbar-brand js-scroll-trigger" href="/logout">Logout</a>
         
+        
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
       </div>
     </nav>
-    <div id="container">
-      <div class="alert alert-info">
-          Pick a player
-      </div>
-      <form action="/player" method="POST">
-          <div class="row">
-              <div class="col">
-                  <select class="form-control" name="continent">
-                      {% for o in options %}
-                      <option value="{{o[0]}}">{{o[0]}}</option>
-                      {% endfor %}
-                  </select>
-              </div>
-              <div class="col">
-                  <input type="submit" class="btn" value="Get Info!">
-              </div>
-          </div>
-      </form>
-  </div>
-  
+
   </body>
   <!-- Footer -->
   <footer class="py-3 bg-dark">

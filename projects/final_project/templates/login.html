@@ -26,23 +26,18 @@
         <a class="navbar-brand js-scroll-trigger" href="/league">League Info</a>
         <a class="navbar-brand js-scroll-trigger" href="/team">Team Info</a>
         <a class="navbar-brand js-scroll-trigger" href="/player">Player Info</a>
+        <form action="/login" method="POST">
+          <div class="container">
+              <input type="submit" name="username" value="Create a New Session" class="btn btn-info btn-lg">
+          </div>
+      </form>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-      </div>
-    </nav>
-
-    
-    <p>New User? <a href="{{ url_for('register') }}">Click to Register!</a></p>
 
   </body>
-  <!-- Footer -->
-  <footer class="py-3 bg-dark">
-    <div class="container">
-      <p class="m-0 text-center text-white">Final Project &copy; Simon Parris 2018</p>
-    </div>
-    <!-- /.container -->
-  </footer>
+  
+  
 </html>
 
 
